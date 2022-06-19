@@ -1,85 +1,11 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
-    <h2>Essential Links</h2>
-    <ul>
-      <li>
-        <a
-          href="https://vuejs.org"
-          target="_blank"
-        >
-          Core Docs
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://forum.vuejs.org"
-          target="_blank"
-        >
-          Forum
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://chat.vuejs.org"
-          target="_blank"
-        >
-          Community Chat
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://twitter.com/vuejs"
-          target="_blank"
-        >
-          Twitter
-        </a>
-      </li>
-      <br>
-      <li>
-        <a
-          href="http://vuejs-templates.github.io/webpack/"
-          target="_blank"
-        >
-          Docs for This Template
-        </a>
-      </li>
-    </ul>
-    <h2>Ecosystem</h2>
-    <ul>
-      <li>
-        <a
-          href="http://router.vuejs.org/"
-          target="_blank"
-        >
-          vue-router
-        </a>
-      </li>
-      <li>
-        <a
-          href="http://vuex.vuejs.org/"
-          target="_blank"
-        >
-          vuex
-        </a>
-      </li>
-      <li>
-        <a
-          href="http://vue-loader.vuejs.org/"
-          target="_blank"
-        >
-          vue-loader
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://github.com/vuejs/awesome-vue"
-          target="_blank"
-        >
-          awesome-vue
-        </a>
-      </li>
-    </ul>
+    <el-table :data="tableData">
+      <el-table-column prop="date" label="日期" width="140"></el-table-column>
+      <el-table-column prop="name" label="姓名" width="120"></el-table-column>
+      <el-table-column prop="address" label="地址" width="240"></el-table-column>
+      <el-table-column prop="none" label="操作"><el-button type="primary" size="default" @click="_blank">编辑</el-button></el-table-column>
+    </el-table>
   </div>
 </template>
 
@@ -87,8 +13,14 @@
 export default {
   name: 'HelloWorld',
   data () {
+    const item = {
+      date: '2016-05-02',
+      name: '王小虎',
+      address: '上海市普陀区金沙江路 1518 弄'
+    }
     return {
-      msg: 'Welcome to Your Vue.js App'
+      // tableData: Array(5).fill(item)
+      tableData : [{date:'2019-09-19',name:'雯笙',address:'河南经贸'}],
     }
   }
 }
